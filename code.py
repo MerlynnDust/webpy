@@ -22,7 +22,7 @@ class index:
         return render.index(name)
 
 class contactus:
-    def contactus(self):
+    def POST(self):
         message = web.input()
         web.sendmail('cookbook@gmail.com', 'email', 'subject', 'message')
         return render.contactus()
