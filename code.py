@@ -25,7 +25,7 @@ class contactus:
     def contactus(self):
         message = web.input()
         web.sendmail('cookbook@gmail.com', 'email', 'subject', 'message')
-        return render.add()
+        return render.contactus()
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
