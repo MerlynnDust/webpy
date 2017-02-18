@@ -12,7 +12,7 @@ web.config.smtp_starttls = True
 
 
 urls = (
-    '/', 'index'
+    '/', 'index',
     '/add','add'
 )
 
@@ -22,10 +22,10 @@ class index:
         return render.index(name)
 
 class add:
-    def ADD(self):
+    def add(self):
         message = web.input()
         web.sendmail('cookbook@gmail.com', 'email', 'subject', 'message')
-
+        return render.add()
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
