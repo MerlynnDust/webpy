@@ -13,7 +13,7 @@ web.config.smtp_starttls = True
 
 urls = (
     '/', 'index',
-    '/add','add'
+    '/contactus','contactus'
 )
 
 class index:
@@ -21,8 +21,8 @@ class index:
         name = 'Bob'
         return render.index(name)
 
-class add:
-    def add(self):
+class contactus:
+    def contactus(self):
         message = web.input()
         web.sendmail('cookbook@gmail.com', 'email', 'subject', 'message')
         return render.add()
