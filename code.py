@@ -5,9 +5,9 @@ render = web.template.render('templates/')
 
 
 web.config.smtp_server = 'smtp.gmail.com'
-web.config.smtp_port = 587
-web.config.smtp_username = 'cookbook@gmail.com'
-web.config.smtp_password = 'secret'
+web.config.smtp_port = 25
+web.config.smtp_username = '<mailserveremailgoeshere>'
+web.config.smtp_password = '<passwordforemailgoeshere>'
 web.config.smtp_starttls = True
 
 
@@ -23,8 +23,12 @@ class index:
 
 class contactus:
     def POST(self):
-        message = web.input()
-        web.sendmail('cookbook@gmail.com', 'email', 'subject', 'message')
+        msg = web.input()
+        messagem = msg['message']
+        subjectm = msg['name']
+        emailm = msg['email']
+        web.sendmail('<mailserveremailgoeshere>', '<emailwhereyouwantyourmailgoeshere>',str(subjectm),"this is from " + str(emailm) + " " + str(messagem))
+
         return render.contactus()
 
 if __name__ == "__main__":
